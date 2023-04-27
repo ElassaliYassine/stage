@@ -137,6 +137,3 @@
 
 
 
-git add . 
-	git commit -m "cccc"
-	git push / git push origin master
