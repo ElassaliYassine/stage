@@ -36,8 +36,14 @@ class PostController extends Controller
 
     public function getNumber(  $id )
     {
+
+     
         $user = User::find($id) ;
-    //    $post = Post::where('id' , $id )->get();
+       $post = Post::where('id' , $id )->with('user')->first();
+
+       return $post->user->number_phone;
+
+       return $post;
         return $user ; 
     }
 
@@ -73,7 +79,19 @@ class PostController extends Controller
      */
     public function store(Request $request )
     {
-        
+         $this->validate($request,[
+            
+            'categorie' => 'required'  ,
+            'title' => ["required"  , "max:50"]   ,
+            'description' => 'required|max:1000'  ,
+            'price' => 'required|max:23'  ,
+            'image_path' => 'required', //image|mimes:jpeg,png,jpg,gif'  ,
+            'region' => 'required'  ,
+            'city' => 'required'  ,
+            'number_whats_app' => ["required" , 'min:10' , "max:10"] 
+        ]);
+
+
         // $waterMark = public_path('watermark.png');
         // $file = $request->image_path;
         // $image = Image::make($file);
@@ -94,7 +112,6 @@ class PostController extends Controller
         $post->title = $request->title ;
         $post->description = $request->description ;
         $post->price = $request->price ;
-        // $post->image_path = $newImageName ;
         $post->region = $request->region ;
         $post->city = $request->city ;
         $post->number_whats_app = $request->number_whats_app ;
@@ -185,9 +202,23 @@ class PostController extends Controller
      */
     public function update(Request $request)
     {
+
+         $this->validate($request,[
+            
+            'categorie' => 'required'  ,
+            'title' => ["required"  , "max:50"]   ,
+            'description' => 'required|max:1000'  ,
+            'price' => 'required|max:23'  ,
+            // 'image_path' => 'required', //image|mimes:jpeg,png,jpg,gif'  ,
+            'region' => 'required'  ,
+            'city' => 'required'  ,
+            'number_whats_app' => ["required" , 'min:9' , "max:10"] 
+        ]);
+
         // user_id  // categorie  // title  // description  // price  // image_path  // region  // city  // number_whats_app
         $post = Post::find($request->id);
         if(  auth()->User()->id == $post->user->id ){
+
 
         
         

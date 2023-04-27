@@ -1,9 +1,14 @@
 @extends('/user/profile');
-
+<style>
+	.pages {
+		/* margin-top: -40px !important ; */
+	}
+	
+</style>
 @section('pages')
-<section  class="mx-5 " >
+<section  class="container    profile_m_t   " >
 	<!-- row -->
-	<div class="row">
+	<div class="row    ">
 		
 		<div class="col-12">
 			<div class="card">
@@ -30,6 +35,40 @@
 							</div>
 
 							<div class="tab-pane  p-20 active " id="profile3" role="tabpanel"    >
+
+
+								<div class=" card p-5 " >
+									
+									<form action="/profile_user/update" method="post" enctype="multipart/form-data" class="w-100" >
+										@csrf
+										<div>
+											<label for="">	address:</label> <br>
+											<input type="text" name="address"  class="w-100" value="{{ auth()->user()->address }}" >
+										</div>
+										<div>
+											<label for="">url_facebook:</label><br>
+											<input type="text" name="url_facebook" class="w-100" value="{{ auth()->user()->url_facebook }}" >
+										</div>
+										<div>
+											<label for="">url_instagram:</label> <br>
+											<input type="file" name="url_instagram" class="w-100"  value="{{ auth()->user()->url_instagram }}" >
+										</div>
+										<div>
+											<label for="">brithday:</label><br>
+											<input type="text"  name="brithday" class="w-100" value="{{ auth()->user()->brithday }}">
+										</div><br>
+										<div>
+											<label for="">	gender:</label><br>
+											<input type="text"  name="gender" class="w-100" value="{{ auth()->user()->brithday }}">
+										</div><br>
+
+										<input type="submit" value="valide">
+										<input type="reset" value="reset" class="mx-5"  >
+										
+									</form>
+								</div>
+
+
 								<div class=" card p-5 " >
 									
 									<form action="/profile_user/update" method="post" enctype="multipart/form-data" class="w-100" >
@@ -60,10 +99,21 @@
 									<form action="/profile_user/change_password" method="post" class="w-100" >
 										@csrf
 										
-										{{-- @if ($show_new_pas == 0)	 --}}
+									
 										<div>
 											<label for=""> old password  :</label><br>
 											<input type="text"  name="old_password" class="w-100" >
+											<span class="text-danger">
+												@if (  !empty($error_pass))	
+												     {{$error_pass}}	
+												@endif
+											</span>
+											@error('old_password')
+											<span class="text-danger">
+												{{ $message }} 
+												@if (  !empty($error_pass))	{{$error_pass}}	@endif
+											</span>
+											@enderror
 										</div><br>
 										{{-- @endif --}}
 
@@ -71,11 +121,17 @@
 											<div>
 												<label for=""> new password  :</label><br>
 												<input type="text"  name="new_password" class="w-100"  >
+												@error('new_password')
+												<span class="text-danger">{{ $message }}</span>
+												@enderror
 											</div><br>
 
 											<div>
 												<label for=""> Confirm  password  :</label><br>
 												<input type="text"  name="confirm_password" class="w-100"  >
+												@error('confirm_password')
+												<span class="text-danger">{{ $message }}</span>
+												@enderror
 											</div><br>
 										{{-- @endif --}}
 										

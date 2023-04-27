@@ -4,7 +4,7 @@
      <header id="header" class="fixed-top">
        <div class="container d-flex align-items-center justify-content-between">
     
-            <a href="/" class="logo">My job</a>
+            <a href="/" class="logo">hirafi </a>
             <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="/">Home</a></li>
@@ -109,14 +109,14 @@
     </div>
   </div>
 
-  <script>
+  {{-- <script>
     $('#exampleModal').on('show.bs.modal', event => {
       var button = $(event.relatedTarget);
       var modal = $(this);
       // Use above variables to manipulate the DOM
       
     });
-  </script>
+  </script> --}}
 {{-- model --}}
 
 

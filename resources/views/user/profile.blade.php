@@ -26,7 +26,7 @@
 
 
 
-<section   class="mx-5 mb-2" >
+<section   class="     container   " >
   <div class="row  ">
 
     <div class="col-12 ">

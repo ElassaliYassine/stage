@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+
 
 class ProfileController extends Controller
 {
@@ -163,14 +165,14 @@ class ProfileController extends Controller
 
     /**
      * Update the specified resource in storage password .
-     */
+     */  
 
     public function change_password(Request $request){
 
         $this->validate($request, [
-            'old_password' => ['required'] ,
-            'new_password' => ['required'] ,
-            'confirm_password' => ['required'] ,
+            'old_password' => ['required' , "min:8" ] ,
+            'new_password' => ['required' , "min:8" ] ,
+            'confirm_password' => ['required', "min:8" ] ,
         ]);
 
         $password = auth()->user()->password;
@@ -178,21 +180,20 @@ class ProfileController extends Controller
         $old_password =   $request->old_password;
         $new_password =   $request->new_password;
         $confirm_password =   $request->confirm_password;
-        
+
         $show_new_pas = 0 ;
         if (Hash::check($old_password,$password)) {  
-            // $show_new_pas= 1 ;
+          
             if( $new_password == $confirm_password){
                 User::where( 'id' , auth()->user()->id )
-                        ->update([  'password' => Hash::make($request->confirm_password) , ]);
-                        return "good" ;
+                        ->update([  'password' => Hash::make($request->confirm_password) , ]);              
             }
         
-        };
-
-
-        return redirect()->back();
-        // return view('user.settings.settings' , [ 'active' => "settings"  , "show_new_pas" =>$show_new_pas] ) ;
+        }else {  
+            return view( 'user.settings.settings' ,[ 'active' => "settings"  , "show_new_pas" =>$show_new_pas , "error_pass" =>"The password is incorrect" ] ) ;
+ 
+        } ;
+        
 
 
     }

@@ -128,7 +128,7 @@ Route::redirect('/admin', '/admin/dashboard');
 Route::get('/user/profile', [ ProfileController::class,'index'] )->name('/user/profile')->middleware('auth');
 Route::get('/profile_user/visit/{id}', [ ProfileController::class,'visit'] )->name('profile_user/visit')->middleware('auth');
 Route::get('/profile_user/all_post', [ ProfileController::class,'all_post'] )->name('/profile_user/all_post')->middleware('auth');
-Route::get('/profile_user/settings', [ ProfileController::class,'settings'] )->name('/profile_user/settings')->middleware('auth');
+Route::get('profile_user/settings', [ ProfileController::class,'settings'] )->name('/profile_user/settings')->middleware('auth');
 Route::post('profile_user/update', [ ProfileController::class,'update'] )->name('profile_user/update')->middleware('auth');
 Route::post('profile_user/change_password', [ ProfileController::class,'change_password'] )->name('profile_user/change_password')->middleware('auth');
 

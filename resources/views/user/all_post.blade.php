@@ -21,208 +21,209 @@
 
 
 
-
+<div  class="   container " >
     <!-- row -->
-	<div class="row   ">
-		
-		<div class="col-12   ">
-			<div class="card    ">
-				<div class="card-body   ">
-					<h4 class="card-title">Customtab vertical Tab</h4>
-					<!-- Nav tabs -->
-					<div class="vtabs customvtab      w-100 ">
-						<ul class="nav nav-tabs tabs-vertical" role="tablist">
-							<li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#my_posts" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down"> my posts </span> </a> </li>
-							<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#i_like_posts" role="tab"><span class="hidden-sm-up"> <i class="bi bi-heart  text-danger  "></i></span> <span class="hidden-xs-down">   i like posts</span></a> </li>
-							{{-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#follower" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Messages</span></a> </li> --}}
-							<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#following" role="tab"><span class="hidden-sm-up">                </span> <span class="hidden-xs-down">following</span></a> </li>
-							<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#followers" role="tab"><span class="hidden-sm-up">                </span> <span class="hidden-xs-down">followers</span></a> </li>
-						</ul>
-						<!-- Tab panes -->
-						<div class="tab-content">
-							<div class="tab-pane active" id="my_posts" role="tabpanel">
-                <section  class=" w-100   " >  
-                    <div class="row">
-                        @foreach ($posts as $post)
-                            <div class="co/l-12 col-3 bg- info ">
-                              <a href="/post/{{$post->id}}">
-                                <img src="/assets/images/advertisement/{{ $post->Images_post[0]->image_path }}" class="image_path" alt="">
-                              </a>
+
+    <div class="row   profile_m_info ">
+      
+      <div class="col-12    ">
+        <div class="card   ">
+          <div class="card-body ">
+            <h4 class="card-title">Customtab vertical Tab</h4>
+            <!-- Nav tabs -->
+            <div class="vtabs customvtab      w-100 ">
+              <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#my_posts" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down"> my posts </span> </a> </li>
+                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#i_like_posts" role="tab"><span class="hidden-sm-up"> <i class="bi bi-heart  text-danger  "></i></span> <span class="hidden-xs-down">   i like posts</span></a> </li>
+                {{-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#follower" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Messages</span></a> </li> --}}
+                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#following" role="tab"><span class="hidden-sm-up">                </span> <span class="hidden-xs-down">following</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#followers" role="tab"><span class="hidden-sm-up">                </span> <span class="hidden-xs-down">followers</span></a> </li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="my_posts" role="tabpanel">
+                  <section  class=" w-100   " >  
+                      <div class="row">
+                          @foreach ($posts as $post)
+                              <div class="co/l-12 col-3 bg- info ">
+                                <a href="/post/{{$post->id}}">
+                                  <img src="/assets/images/advertisement/{{ $post->Images_post[0]->image_path }}" class="image_path" alt="">
+                                </a>
+                                </div>
+                              <div class="col/-12 col-8  bg- danger ">
+                                  <h5> {{ $post->title}}   </h5>
+                                  <div> <span class="text-light bg-info  "  > {{ $post->price}} MD  </span>  </div>
+                                  <div> {{$post->city}}  , {{$post->region}} </div>
+                                  <p>
+                                      {{$post->description}} 
+                                  </p>
                               </div>
-                            <div class="col/-12 col-8  bg- danger ">
-                                <h5> {{ $post->title}}   </h5>
-                                <div> <span class="text-light bg-info  "  > {{ $post->price}} MD  </span>  </div>
-                                <div> {{$post->city}}  , {{$post->region}} </div>
-                                <p>
-                                    {{$post->description}} 
-                                </p>
-                            </div>
-                            <div class="co/l-12 col-1 ">
-                                @if ( Auth::user() &&   Auth::user()->id == $post->user->id )
+                              <div class="co/l-12 col-1 ">
+                                  @if ( Auth::user() &&   Auth::user()->id == $post->user->id )
+                                      
+                                  <div class="mb-1" >
+                                    <!-- Button trigger modal -->
                                     
-                                <div class="mb-1" >
-                                  <!-- Button trigger modal -->
+                                      <i  class=" " data-toggle="modal" data-target="#del_post-user_127">
+                                        <p class="ti-trash ti" ></p>
+                                      </i>
+                                      <a href="/advertisement/edit/{{  $post->id  }}" class="   bi bi-upload" ></a>
+                                  </div>
+                                  @endif
                                   
-                                    <i  class=" " data-toggle="modal" data-target="#del_post-user_127">
-                                      <p class="ti-trash ti" ></p>
-                                    </i>
-                                    <a href="/advertisement/edit/{{  $post->id  }}" class="   bi bi-upload" ></a>
-                                </div>
-                                @endif
-                                
-                                {{-- start like --}}
-                                  <p class="card-title  mt-2   d-flex ">{{ count($post->likes) }} 
-                                  <span  hidden  >   {{   $f1 = 0  }} </span>
-                                  <span  hidden  >   {{   $f2 = 0  }} </span>
-                                  @if (auth()->user())
-                                    @foreach ( $post->likes as $like)
-                                          @if ( ($like->user_id  ) === (  auth()->user()->id )  )
-                                            <span  hidden  >   {{   $f1 = 1  }} </span>     
-                                          @else
-                                            <span  hidden >  {{    $f2 = 1 }} </span> 
-                                          @endif   
-                                    @endforeach
-                                  @endif
-                                  @if ($f1 == 1)
-                                  <a href="{{route('like/destroy'  , $like->id )}}"  class="mt-1" >
-                                              <i class="bi bi-heart-fill  text-danger  "></i>
-                                            </a> 
-                                  @else
-                                      <a href="{{route('like/create' , $post->id )}}" class="mt-1"  >
-                                            <i class="bi bi-heart  text-danger  "></i>
-                                          </a>
-                                  @endif
-                                        </p>
-                                {{-- end like --}}
+                                  {{-- start like --}}
+                                    <p class="card-title  mt-2   d-flex ">{{ count($post->likes) }} 
+                                    <span  hidden  >   {{   $f1 = 0  }} </span>
+                                    <span  hidden  >   {{   $f2 = 0  }} </span>
+                                    @if (auth()->user())
+                                      @foreach ( $post->likes as $like)
+                                            @if ( ($like->user_id  ) === (  auth()->user()->id )  )
+                                              <span  hidden  >   {{   $f1 = 1  }} </span>     
+                                            @else
+                                              <span  hidden >  {{    $f2 = 1 }} </span> 
+                                            @endif   
+                                      @endforeach
+                                    @endif
+                                    @if ($f1 == 1)
+                                    <a href="{{route('like/destroy'  , $like->id )}}"  class="mt-1" >
+                                                <i class="bi bi-heart-fill  text-danger  "></i>
+                                              </a> 
+                                    @else
+                                        <a href="{{route('like/create' , $post->id )}}" class="mt-1"  >
+                                              <i class="bi bi-heart  text-danger  "></i>
+                                            </a>
+                                    @endif
+                                          </p>
+                                  {{-- end like --}}
 
-                            </div>
-                            <hr>
+                              </div>
+                              <hr>
+                          @endforeach
+                      </div>
+                  </section>
+                </div>	
+
+                <div class="tab-pane  p-20" id="i_like_posts" role="tabpanel">
+                  <section  class=" w-100   " >  
+                      <div class="row">
+                          @foreach ($posts_like as $posts)
+                              @foreach ($posts as $post)
+                              <div class="co/l-12 col-3 bg- info ">
+                                <a href="/post/{{$post->id}}">
+                                  <img src="/assets/images/advertisement/{{ $post->Images_post[0]->image_path }}" class="image_path" alt="">
+                                </a>
+                              </div>
+                              <div class="col/-12 col-8  bg- danger ">
+                                  <h5> {{ $post->title}}   </h5>
+                                  <div> <span class="text-light bg-info  "  > {{ $post->price}} MD  </span>  </div>
+                                  <div> {{$post->city}}  , {{$post->region}} </div>
+                                  <p>
+                                      {{$post->description}} 
+                                  </p>
+                              </div>
+                              <div class="co/l-12 col-1 ">
+                                  @if ( Auth::user() &&   Auth::user()->id == $post->user->id )
+                                      
+                                  <div class="mb-1" >
+                                    <!-- Button trigger modal -->
+                                    
+                                      <i  class=" " data-toggle="modal" data-target="#del_post-user_127">
+                                        <p class="ti-trash ti" ></p>
+                                      </i>
+                                      <a href="/advertisement/edit/{{  $post->id  }}" class="   bi bi-upload" ></a>
+                                  </div>
+                                  @endif
+                                  
+                                  {{-- start like --}}
+                                    <p class="card-title  mt-2   d-flex ">{{ count($post->likes) }} 
+                                    <span  hidden  >   {{   $f1 = 0  }} </span>
+                                    <span  hidden  >   {{   $f2 = 0  }} </span>
+                                    @if (auth()->user())
+                                      @foreach ( $post->likes as $like)
+                                            @if ( ($like->user_id  ) === (  auth()->user()->id )  )
+                                              <span  hidden  >   {{   $f1 = 1  }} </span>     
+                                            @else
+                                              <span  hidden >  {{    $f2 = 1 }} </span> 
+                                            @endif   
+                                      @endforeach
+                                    @endif
+                                    @if ($f1 == 1)
+                                    <a href="{{route('like/destroy'  , $like->id )}}"  class="mt-1" >
+                                                <i class="bi bi-heart-fill  text-danger  "></i>
+                                              </a> 
+                                    @else
+                                        <a href="{{route('like/create' , $post->id )}}" class="mt-1"  >
+                                              <i class="bi bi-heart  text-danger  "></i>
+                                            </a>
+                                    @endif
+                                          </p>
+                                  {{-- end like --}}
+
+                              </div>
+                              <hr>
+                          @endforeach
+                          @endforeach
+                      </div>
+                  </section>
+                </div>
+
+
+                <div class="tab-pane p-20" id="following" role="tabpanel">
+                
+                    {{-- @foreach ($following as $f)
+                        @foreach ($f as $user)
+                            {{
+                              $user
+                            }} <br>
                         @endforeach
-                    </div>
-                </section>
-              </div>	
+                        
+                    @endforeach --}}
 
-							<div class="tab-pane  p-20" id="i_like_posts" role="tabpanel">
-                <section  class=" w-100   " >  
-                    <div class="row">
-                        @foreach ($posts_like as $posts)
-                            @foreach ($posts as $post)
-                            <div class="co/l-12 col-3 bg- info ">
-                              <a href="/post/{{$post->id}}">
-                                <img src="/assets/images/advertisement/{{ $post->Images_post[0]->image_path }}" class="image_path" alt="">
+                      <div class="row">
+                      @foreach ($following as $f)
+                        <div class="col-xs-1-12    col-md-6  col-lg-4  col-xl-3 ">
+                          <div class="card border-success">
+                            <div class="card-body">
+                              <a href="/profile_user/visit/{{$f->user_id_2 }}">
+                                <img class="card-img-top"  width="100px" src="/assets/images/profile/{{$f->img_user}}" alt="">
                               </a>
+                              <h3 class="card-title">{{ $f ->name }}</h3>
+                              {{-- <p class="card-text">Text</p> --}}
                             </div>
-                            <div class="col/-12 col-8  bg- danger ">
-                                <h5> {{ $post->title}}   </h5>
-                                <div> <span class="text-light bg-info  "  > {{ $post->price}} MD  </span>  </div>
-                                <div> {{$post->city}}  , {{$post->region}} </div>
-                                <p>
-                                    {{$post->description}} 
-                                </p>
-                            </div>
-                            <div class="co/l-12 col-1 ">
-                                @if ( Auth::user() &&   Auth::user()->id == $post->user->id )
-                                    
-                                <div class="mb-1" >
-                                  <!-- Button trigger modal -->
-                                  
-                                    <i  class=" " data-toggle="modal" data-target="#del_post-user_127">
-                                      <p class="ti-trash ti" ></p>
-                                    </i>
-                                    <a href="/advertisement/edit/{{  $post->id  }}" class="   bi bi-upload" ></a>
-                                </div>
-                                @endif
-                                
-                                {{-- start like --}}
-                                  <p class="card-title  mt-2   d-flex ">{{ count($post->likes) }} 
-                                  <span  hidden  >   {{   $f1 = 0  }} </span>
-                                  <span  hidden  >   {{   $f2 = 0  }} </span>
-                                  @if (auth()->user())
-                                    @foreach ( $post->likes as $like)
-                                          @if ( ($like->user_id  ) === (  auth()->user()->id )  )
-                                            <span  hidden  >   {{   $f1 = 1  }} </span>     
-                                          @else
-                                            <span  hidden >  {{    $f2 = 1 }} </span> 
-                                          @endif   
-                                    @endforeach
-                                  @endif
-                                  @if ($f1 == 1)
-                                  <a href="{{route('like/destroy'  , $like->id )}}"  class="mt-1" >
-                                              <i class="bi bi-heart-fill  text-danger  "></i>
-                                            </a> 
-                                  @else
-                                      <a href="{{route('like/create' , $post->id )}}" class="mt-1"  >
-                                            <i class="bi bi-heart  text-danger  "></i>
-                                          </a>
-                                  @endif
-                                        </p>
-                                {{-- end like --}}
-
-                            </div>
-                            <hr>
-                        @endforeach
-                        @endforeach
-                    </div>
-                </section>
-              </div>
-
-
-							<div class="tab-pane p-20" id="following" role="tabpanel">
-              
-                  {{-- @foreach ($following as $f)
-                      @foreach ($f as $user)
-                          {{
-                            $user
-                          }} <br>
+                          </div>
+                        </div>
                       @endforeach
-                      
-                  @endforeach --}}
+                      </div>
 
-                    <div class="row">
-                    @foreach ($following as $f)
-                      <div class="col-xs-1-12    col-md-6  col-lg-4  col-xl-3 ">
-                        <div class="card border-success">
-                          <div class="card-body">
-                            <a href="/profile_user/visit/{{$f->user_id_2 }}">
-                              <img class="card-img-top"  width="100px" src="/assets/images/profile/{{$f->img_user}}" alt="">
-                            </a>
-                            <h3 class="card-title">{{ $f ->name }}</h3>
-                            {{-- <p class="card-text">Text</p> --}}
+                </div>
+
+                <div class="tab-pane p-20" id="followers" role="tabpanel">
+                  <div class="row">
+                      @foreach ($followers as $f)
+                        <div class="col-xs-1-12    col-md-6  col-lg-4  col-xl-3 ">
+                          <div class="card border-success">
+                            <div class="card-body">
+                              <a href="/profile_user/visit/{{$f->user_id_1 }}">
+                                <img class="card-img-top"  width="100px" src="/assets/images/profile/{{$f->img_user}}" alt="">
+                              </a>
+                              <h3 class="card-title">{{ $f ->name }}</h3>
+                              {{-- <p class="card-text">Text</p> --}}
+                            </div>
                           </div>
                         </div>
+                      @endforeach
                       </div>
-                    @endforeach
-                    </div>
+                </div>
+
 
               </div>
-
-              <div class="tab-pane p-20" id="followers" role="tabpanel">
-                <div class="row">
-                    @foreach ($followers as $f)
-                      <div class="col-xs-1-12    col-md-6  col-lg-4  col-xl-3 ">
-                        <div class="card border-success">
-                          <div class="card-body">
-                            <a href="/profile_user/visit/{{$f->user_id_1 }}">
-                              <img class="card-img-top"  width="100px" src="/assets/images/profile/{{$f->img_user}}" alt="">
-                            </a>
-                            <h3 class="card-title">{{ $f ->name }}</h3>
-                            {{-- <p class="card-text">Text</p> --}}
-                          </div>
-                        </div>
-                      </div>
-                    @endforeach
-                    </div>
-              </div>
-
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 	<!-- row -->
-
+</div>
 
 
 

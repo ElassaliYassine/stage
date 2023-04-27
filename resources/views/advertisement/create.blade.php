@@ -19,12 +19,10 @@
                             <label for=""> chese category </label>
                             <div class="form-floating mb-3 mb-md-0">
                                 <select name="categorie"  id="inputFirstName">
-                                    <option  hidden > categorie</option>
-                                    <option value="eonstruction professionals">  eonstruction professionals</option>
+                                    <option  hidden value="" > chese category </option>
                                     <option value="building"> Building</option>
                                     <option value="craftsmen"> craftsmen</option>
                                     <option value="electronic maintenance"> electronic maintenance</option>
-                                    <option value="Professionals Craftsmen"> Professionals Craftsmen</option>
                                     <option value="home repairs"> home repairs</option>
                                     <option value="food services"> food services</option>
                                     <option value="transport and transportation"> transport and transportation</option>
@@ -34,6 +32,11 @@
                                 
                             </div>
                         </div>
+                        <span class="text-danger">
+                            @error('categorie')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </span>
                     </div>
 
                     <div class="row mb-3">
@@ -41,14 +44,22 @@
                             <div class="form-floating">
                                 <input class="form-control" id="title"  name="title"  type="text" placeholder="Enter your title">
                                 <label for="title">title</label>
+                                @error('title')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>
+                   
 
                     <div class="form-floating mb-3">
                         <label for="description  " >description</label>
                         <textarea name="description" id="description" cols="30" rows="10" class="form-control h-50 py-5 "  > </textarea>
+                        @error('description')
+                                    <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
+
 
                     <div class="row mb-3">
                         <div class="col-md-12">
@@ -56,6 +67,9 @@
                                 <input class="form-control" id="price" name="price"  value="check with the  seller "  type="text" placeholder="Create a price">
                                 <label for="inputPassword">Price</label>
                             </div>
+                            @error('price')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
@@ -67,6 +81,9 @@
                             <div class="form -floating mb-3 mb-md-0">
                                 <input  class="form-control" id="image_path" type="file" name="image_path[]" multiple  placeholder="Confirm image_path"    >
                             </div>
+                            @error('image_path')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     
@@ -78,7 +95,7 @@
                             <label for=""> chese region </label>
                             <div class="form-floating mb-3 mb-md-0">
                                 <select name="region" id="region"  onclick="showCity(this.value)"   >
-                                    <option   hidden > chese region </option>
+                                    <option   hidden value="" > chese region </option>
                                     <option value="Tanger-Tetouan-Al-Hoceima" > Tanger-Tétouan-Al Hoceïma</option>
                                     <option value="L-Oriental">  L'Oriental</option>
                                     <option value="Fes-Meknes">  Fès-Meknès </option>
@@ -95,20 +112,12 @@
                                 </select> 
                             </div>
                         </div>
+                        @error('region')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
-                    {{-- <style>
-                        .safi {
-                            display: none;
-                        }
-                        .dakhal {
-                            display: none;
-                        }
-                        .casa {
-                            display: none;
-                        }
-                         
-                    </style> --}}
+                    
                     
                     
                     <div class="row mb-3">
@@ -211,6 +220,9 @@
                                 </select> 
                             </div>
                         </div>
+                        @error('city')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     
@@ -221,6 +233,9 @@
                                     <label for="number_whats_app">Confirm number_whats_app</label>
                                 </div>
                             </div>
+                            @error('number_whats_app')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                     </div>
 
 

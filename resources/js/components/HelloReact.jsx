@@ -1,6 +1,7 @@
 
 import React , { useEffect , useState} from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios'
 
 // import axios from 'axios';
 
@@ -16,7 +17,7 @@ export default function HelloReact( ) {
 var id = parts.pop() || parts.pop();  // handle potential trailing slash
 
 
-
+     
   // let slug = url => new URL(url).pathname.match(/[^\/]+/g)
     
    // console.log("params =>",slug)
@@ -25,15 +26,13 @@ var id = parts.pop() || parts.pop();  // handle potential trailing slash
     const [phone, SetPhone] = useState("");
        
     const getPhone = () => {
-            fetch(`http://127.0.0.1:8000/getNumber/${id}`)
+   
+            axios.get(`http://localhost:8000/getNumber/${id}`)
                 .then((response) => {
-                    // console.log(response);
-                    return response.json();
-                })
-                .then((users) => {
-                    SetPhone(users.number_phone);
+                      console.log("done",response.data);
+                    SetPhone(response.data);
                     SetStatus(true);
-                });
+                }).catch((err)=> console.log("error",err));
         //  console.log(id);
                 
             }

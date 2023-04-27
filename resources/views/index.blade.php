@@ -25,7 +25,9 @@
         
 
 
-
+        .wid{
+      width: 520px;
+    }
 
       
         
@@ -57,22 +59,54 @@
 
 </section><!-- End Hero -->
 
-<!-- ======= Category Section ======= -->
-    <section  class="container " >
+  <!-- ======= Category Section ======= -->
+  <div class="bg-white"  >
+    <section  class="container wid  " >
       <div class="row   " >
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/eonstruction professionals"  > Construction professionals </a>
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/craftsmen"                   > craftsmen </a>
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/electronic maintenance"      >Electronic maintenance</a>
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/home repairs"                >home repairs</a>
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/building "                >Building </a>
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/professionals craftsmen "                >  Professionals Craftsmen </a>
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/food services"                > Food services   </a>
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/transport and transportation"                > Transport and transportation  </a>
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/local products "                >   Local products</a>
-        <a  class=" col-md-2 m-1  bg-warning   text-dark  p-4"  href="advertisement/posts/other services"                >Other services    </a>
+        {{-- <a  class="  col       text-dark  text-center"  href="/advertisement/posts/eonstruction professionals"  > 
+          <img class="rounded-circle" width="70px" src="/assets/images/category/construction_professionals.png" alt="">
+          Construction professionals 
+        </a> --}}
+        <a  class="  col  m-1     text-dark  text-center"  href="/advertisement/posts/craftsmen"                   > 
+          <img width="70px" src="/assets/images/category/craftsmen.png" alt="">
+          <p>craftsmen</p> 
+        </a>
+        <a  class="  col  m-1     text-dark text-center "  href="/advertisement/posts/electronic maintenance"      >
+          <img width="70px" src="/assets/images/category/electronic_maintenance.png" alt="">
+          <p>Electronic maintenance</p>
+        </a>
+        <a  class="  col m-1      text-dark text-center "  href="/advertisement/posts/home repairs"  >
+          <img width="70px" src="/assets/images/category/home_repairs.png" alt="">
+          <p>Home repairs</p>
+        </a>
+        <a  class="  col  m-1     text-dark text-center "  href="/advertisement/posts/building " >
+          <img width="70px" src="/assets/images/category/building.png" alt="">
+          <p>Building</p> 
+        </a>
+        {{-- <a  class="  col       text-dark text-center "  href="/advertisement/posts/professionals craftsmen "> 
+          <img width="70px" src="/assets/images/category/other_services.png" alt=""> 
+          Professionals Craftsmen 
+        </a> --}}
+        <a  class="  col m-1      text-dark text-center "  href="/advertisement/posts/food services" > 
+          <img width="70px" src="/assets/images/category/food_services.png" alt="">
+          <p>Food services   </p>
+        </a>
+        <a  class="  col   m-1    text-dark   text-center"  href="/advertisement/posts/transport and transportation"                > 
+          <img width="70px" src="/assets/images/category/transport_and_transportation.png" alt="">
+          <p>Transport and transportation </p> 
+        </a>
+        <a  class="   col  m-1   text-dark text-center "  href="/advertisement/posts/local products "  >   
+          <img width="70px" src="/assets/images/category/local_products.png" alt="">
+          <p>Local products</p>
+        </a>
+        <a  class="   col  m-1   text-dark  text-center "  href="/advertisement/posts/other services">
+          <img width="70px" src="/assets/images/category/other_services.png" alt="">
+          <p>Other services    </p>
+        </a>
       
       </div>
     </section>
+  </div>
 <!-- =======  End Category Section ======= -->
  
 <!-- ======= search Section ======= -->

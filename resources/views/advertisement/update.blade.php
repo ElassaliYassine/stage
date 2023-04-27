@@ -24,21 +24,24 @@
                         <div class="">
                             <label for=""> chese category </label>
                             <div class="form-floating mb-3 mb-md-0">
-                                <select name="categorie"  id="categorie_update"   value="{{ $post->categorie }}"  >
-                                    <option  hidden > categorie</option>
-                                    <option value="eonstruction professionals">  eonstruction professionals</option>
-                                    <option value="building"> Building</option>
-                                    <option value="craftsmen"> craftsmen</option>
-                                    <option value="electronic maintenance"> electronic maintenance</option>
-                                    <option value="Professionals Craftsmen"> Professionals Craftsmen</option>
-                                    <option value="home repairs"> home repairs</option>
-                                    <option value="food services"> food services</option>
-                                    <option value="transport and transportation"> transport and transportation</option>
-                                    <option value="local products"> local products</option>
-                                    <option value="other services"> other services</option>
+                                <select name="categorie"  id="catego rie_update"   value="{{ $post->categorie }}"  >
+                                    <option  hidden value="" > chese category</option>
+                                    <option {{ (  $post->categorie =='building' )?"selected": "" }} value="building"> Building</option>
+                                    <option {{ (  $post->categorie =='craftsmen' )?"selected": "" }} value="craftsmen"> craftsmen</option>
+                                    <option {{ (  $post->categorie =='electronic maintenance' )?"selected": "" }} value="electronic maintenance"> electronic maintenance</option>
+                                    <option {{ (  $post->categorie =='home repairs' )?"selected": "" }} value="home repairs"> home repairs</option>
+                                    <option {{ (  $post->categorie =='food services' )?"selected": "" }} value="food services"> food services</option>
+                                    <option {{ (  $post->categorie =='transport and transportation' )?"selected": "" }} value="transport and transportation"> transport and transportation</option>
+                                    <option {{ (  $post->categorie =='local products' )?"selected": "" }} value="local products"> local products</option>
+                                    <option {{ (  $post->categorie =='other services' )?"selected": "" }} value="other services"> other services</option>
                                 </select>
                                 
                             </div>
+                            @error('categorie')
+                                     
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                     </div>
 
@@ -48,20 +51,35 @@
                                 <input class="form-control" id="title"  name="title"  type="text" placeholder="Enter your title" value="{{ $post->title }}"  >
                                 <label for="title">title</label>
                             </div>
+                            @error('title')
+                                     <span class="text-danger" >
+                                        <strong >{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                     </div>
 
                     <div class="form-floating mb-3">
                         <label for="description  " >description</label>
                         <textarea name="description"  id="description" cols="30" rows="10" class="form-control h-50 py-5 "  > {{ $post->description }}  </textarea>
+                    @error('description')
+                                     
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control" id="price" name="price"  value="{{ $post->price }}" type="number" placeholder="Create a price">
+                                <input class="form-control" id="price" name="price"  value="{{$post->price}}" type="text"  >
                                 <label for="inputPassword">Price</label>
                             </div>
+                            @error('price')
+                                     
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         </div>
 
@@ -71,7 +89,11 @@
                                 <div class="form -floating mb-3 mb-md-0">
                                     {{-- <input class="form -control" id="image_path"   value="  assets/images/advertisement/{{$post->image_path}}"     type="file" name="image_path" placeholder="Confirm image_path"> --}}
                                     <input  class="form -control" id="image_path"   value="{{$post->image_path}}"   type="file" name="image_path[]"  multiple  placeholder="Confirm image_path">
-
+                                    @error('image_path')
+                                     
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                     <div class="d-flix" >
                                 @foreach($post->images_post as $p)
                                         

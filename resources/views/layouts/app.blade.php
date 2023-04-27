@@ -43,13 +43,6 @@
   {{-- <link rel="stylesheet" href="/admin/css/sb-admin-2.css"> --}}
 
 
-  <style>
-    .content{
-        margin-top: 75px;
-    }
-   
-  </style>
-
   <div>
     @yield('link')
   </div>
@@ -81,24 +74,18 @@
         {{-- <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script> --}}
     <script src="{{asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
         {{-- <script src="{{asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script> --}}
-    <script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
         {{-- <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script> --}}
 
         <!-- Template Main JS File -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-          <!-- Bootstrap core JavaScript-->
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+        <!-- Bootstrap core JavaScript-->
         <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         
-         <script src="{{ asset('js/main.js') }}" ></script>
+        <script src="{{ asset('js/main.js') }}" ></script>
         
 
-
-            
-
-    
-    
-       
 </div>
 @yield('script')
 </body>

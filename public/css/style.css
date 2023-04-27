@@ -59,6 +59,18 @@ textarea {
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
+.profile_m_t {
+		margin-top: -130px !important ;
+		/* margin-top: -160px !important ; */
+    box-shadow: none;
+    border: none;
+	}
+.profile_m_info {
+		margin-top: -70px !important ;
+    box-shadow: none;
+	}
+
+
 .portfolio-details {
   padding-top: 40px;
 }

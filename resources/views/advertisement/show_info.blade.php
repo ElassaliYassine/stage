@@ -10,7 +10,7 @@
                 @foreach ($post->images_post as $p)
                        
                     <div class="swiper-slide">
-                      <a href="/assets/images/advertisement/{{$p->image_path}}" data-gallery="port/folioGallery" class="portfolio-lightbox" title="App 2837423">
+                      <a href="/assets/images/advertisement/{{$p->image_path}}" data-gallery="port/folioGallery" class="portfolio-lightbox" >
                         <img src="/assets/images/advertisement/{{ $p->image_path}}"   class="images_of_post" alt="{{ $p->image_path}}">
                       </a>
                     </div>
@@ -140,10 +140,10 @@
   </div>
 </div>
 
-<script>
+{{-- <script>
   $('#exampleModal').on('show.bs.modal', event => {
     var button = $(event.relatedTarget);
     var modal = $(this);
     
   });
-</script>
+</script> --}}

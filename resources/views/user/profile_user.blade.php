@@ -24,16 +24,16 @@
 
 
  <!-- /# row -->
-        <section id="main-content w-75  m-auto  ">
-          <div class="row ">
-            <div class="col-lg-12">
-              <div class="card  container m-auto    ">
+        <section id="main/-content        "  class="pro/file_m_t" >
+          <div class="row  container m-auto  ">
+            <div class="col-lg-12 mt-4 ">
+              <div class="card      ">
                 <div class="card-body">
                   <div class="user-profile">
                     <div class="row">
                       <div class="col-lg-4">
                         <div class="user-photo m-b-30">
-                          <img class="img-fluid" src="/assets/images/profile/{{ $user->img_user  }} " alt="" />
+                          <img class="img-fluid" src="/assets/images/profile/{{ $user->img_user  }}"  width="300px"  alt="" />
                         </div>
                         <div class="user-work">
                           <h4>work</h4>
@@ -129,6 +129,12 @@
                                 <div class="address-content">
                                   <span class="contact-title">Address:</span>
                                   <span class="mail-address">#123, Rajar Goli, South Mugda</span>
+                                </div>
+                                <div class="address-content">
+                                  <span class="contact-title">city:</span>
+                                  @if (   !empty($user->profiles->city)  )    
+                                  <span class="mail-address">  {{ $user->profiles->city }}   </span>
+                                  @endif
                                 </div>
                                 <div class="email-content">
                                   <span class="contact-title">Email:</span>
