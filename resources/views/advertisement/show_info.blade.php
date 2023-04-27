@@ -26,6 +26,8 @@
             {{-- <img src="/assets/images/advertisement/{{$post->Images_post->image_path}}" width="100%" alt=""> --}}
 
             <div class="my-4   "   >
+              
+              <h6> title  : {{ $post->title }}</h6>
               <div class="d-flex  bitt   " >
                 <h5>description</h5>
                
@@ -61,9 +63,9 @@
                   
                 
               </div>
+
               <p class="Lorem" >
                  {{  $post->description  }}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque expedita facilis similique mollitia libero eos. Adipisci hic harum quod blanditiis, laboriosam error, cum animi minus impedit itaque quibusdam sed cumque.
               </p>
             </div>
           </div>
@@ -99,13 +101,7 @@
           
             </div>
         </div>
-        <div class="portfolio-description">
-            <h2>{{ $post->title }}</h2>
-            <p>
-              {{  $post->description  }}
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur maiores omnis, fugiat soluta, quis iure nobis nostrum eaque assumenda similique consequatur dolore minus. Repellat voluptatem assumenda unde porro, aut nulla!
-            </p>
-        </div>
+        
         </div>
 
     </div>

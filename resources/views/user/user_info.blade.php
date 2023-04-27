@@ -51,7 +51,9 @@
                 <div class="col-lg-8">
                   <div class="user-profile-name"> {{auth()->user()->name}}  </div>
                   <div class="user-Location">
-                    <i class="ti-location-pin"></i> #  New York, New York</div>
+                    <i class="ti-location-pin"></i> 
+                    {{-- #  New York, New York --}}
+                  </div>
                   <div class="user-job-title">Product Designer</div>
                   <div class="ratings">
                     <h4>Ratings</h4>
@@ -131,3 +133,10 @@
 
 {{-- end profile --}}
 @endsection
+
+
+
+
+git add . 
+	git commit -m "cccc"
+	git push / git push origin master
